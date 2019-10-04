@@ -1,0 +1,21 @@
+<%= provide(:title, 'Home') %>
+ debug ENV.to_h.to_yaml
+<% if @urls.any? %>
+    <div class='carousel slide' data-ride='carousel'>
+        <div class='carousel-inner'>
+            <% @urls.each_with_index do |url, idx| %>
+                <% if idx == 1%>
+                    <div class='carousel-item active'>
+                        <img src=<%= url %> class='d-block'>
+                    </div>
+                <% else%>
+                    <div class='carousel-item'>
+                        <img src=<%= url %> class='d-block'>
+                    </div>
+                <% end %>
+            <% end %>
+        </div>
+    </div>
+<% else %>
+    <h1>Search for a photostream</h1>
+<% end %>
